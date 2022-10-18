@@ -1,14 +1,7 @@
 #pragma once
 #include <guiddef.h>
-
-// 74619BDA-A66B-451D-864C-A7726F5FE650
-// CLSID used in manifest file for Preview Handler.
-const CLSID CLSID_SHIMActivateSvgPreviewHandler = { 0x74619BDA, 0xA66B, 0x451D, { 0x86, 0x4C, 0xA7, 0x72, 0x6F, 0x5F, 0xE6, 0x50 } };
-
-// ddee2b8a-6807-48a6-bb20-2338174ff779
-// CLSID of the .Net Com Class for Preview Handler. Should be included in the registry.dat file under \Classes\CLSID\{guid}.
-// More details here: https://learn.microsoft.com/dotnet/framework/interop/registering-assemblies-with-com
-const CLSID CLSID_SvgPreviewHandler = { 0xddee2b8a, 0x6807, 0x48a6, { 0xbb, 0x20, 0x23, 0x38, 0x17, 0x4f, 0xf7, 0x79 } };
+#include <vector>
+#include <utility>
 
 // E0907A95-6F9A-4D1B-A97A-7D9D2648881E
 const CLSID CLSID_SHIMActivateMdPreviewHandler = { 0xE0907A95, 0x6F9A, 0x4D1B, { 0xA9, 0x7A, 0x7D, 0x9D, 0x26, 0x48, 0x88, 0x1E } };
@@ -48,6 +41,5 @@ const std::vector<std::pair<CLSID, CLSID>> NativeToManagedClsid({
     { CLSID_SHIMActivateMdPreviewHandler, CLSID_MdPreviewHandler },
     { CLSID_SHIMActivatePdfPreviewHandler, CLSID_PdfPreviewHandler },
     { CLSID_SHIMActivateGcodePreviewHandler, CLSID_GcodePreviewHandler },
-    { CLSID_SHIMActivateSvgPreviewHandler, CLSID_SvgPreviewHandler },
     { CLSID_SHIMActivateSvgThumbnailProvider, CLSID_SvgThumbnailProvider }
 });

@@ -25,18 +25,33 @@ namespace NonLocalizable
 
 inline registry::ChangeSet getSvgPreviewHandlerChangeSet(const std::wstring installationDir, const bool perUser)
 {
+    // 78A573CA-297E-4D9F-A5FC-7F6E5EEA6FC9
+    // SvgPreviewHandlerCpp class
+    const CLSID CLSID_SvgPreviewHandler = { 0x78A573CA, 0x297E, 0x4D9F, { 0xA5, 0xFC, 0x7F, 0x6E, 0x5E, 0xEA, 0x6F, 0xC9 } };
+    // 2992DE27-3526-48C5-B765-E55278ECBE9D
+    const GUID APPID_SvgPreviewHandler = { 0x2992DE27, 0x3526, 0x48C5, { 0xB7, 0x65, 0xE5, 0x52, 0x78, 0xEC, 0xBE, 0x9D } };
+
+    wchar_t szCLSID[MAX_PATH];
+    (void)StringFromGUID2(CLSID_SvgPreviewHandler, szCLSID, ARRAYSIZE(szCLSID));
+
+    wchar_t szAppID[MAX_PATH];
+    (void)StringFromGUID2(APPID_SvgPreviewHandler, szAppID, ARRAYSIZE(szAppID));
+
     using namespace registry::shellex;
     return generatePreviewHandler(PreviewHandlerType::preview,
                                   perUser,
-                                  L"{ddee2b8a-6807-48a6-bb20-2338174ff779}",
+                                  szCLSID,
                                   get_std_product_version(),
                                   (fs::path{ installationDir } /
-                                   LR"d(modules\FileExplorerPreview\PowerToys.SvgPreviewHandler.comhost.dll)d")
+                                   LR"d(modules\FileExplorerPreview\SvgPreviewHandlerCpp.dll)d")
                                       .wstring(),
                                   registry::DOTNET_COMPONENT_CATEGORY_CLSID,
-                                  L"Microsoft.PowerToys.PreviewHandler.Svg.SvgPreviewHandler",
+                                  L"SvgPreviewHandler",
                                   L"Svg Preview Handler",
-                                  NonLocalizable::ExtSVG);
+                                  NonLocalizable::ExtSVG,
+                                  {},
+                                  szAppID);
+    return {};
 }
 
 inline registry::ChangeSet getMdPreviewHandlerChangeSet(const std::wstring installationDir, const bool perUser)
