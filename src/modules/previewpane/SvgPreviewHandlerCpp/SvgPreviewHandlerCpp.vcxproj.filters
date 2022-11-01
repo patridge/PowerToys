@@ -27,9 +27,6 @@
     <ClInclude Include="SvgPreviewHandlerControl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Reg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -45,9 +42,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SvgPreviewHandlerControl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Reg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

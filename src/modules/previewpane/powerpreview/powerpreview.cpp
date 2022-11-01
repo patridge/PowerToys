@@ -12,7 +12,7 @@
 #include <common/utils/process_path.h>
 
 #include <SettingsAPI/settings_helpers.h>
-#include <SvgPreviewHandlerCpp/Reg.h>
+
 // Constructor
 PowerPreviewModule::PowerPreviewModule() :
     m_moduleName(GET_RESOURCE_STRING(IDS_MODULE_NAME)),
@@ -70,25 +70,6 @@ PowerPreviewModule::PowerPreviewModule() :
                                       .settingDescription = GET_RESOURCE_STRING(IDS_STL_THUMBNAIL_PROVIDER_SETTINGS_DESCRIPTION),
                                       .checkModuleGPOEnabledRuleFunction = powertoys_gpo::getConfiguredStlThumbnailsEnabledValue,
                                       .registryChanges = getStlThumbnailHandlerChangeSet(installationDir, installPerUser) });
-
-    ////////////////////////////////////////////////////////////////////////////////////////////
-    //wchar_t szModule[MAX_PATH];
-    //if (GetModuleFileName(g_hInst, szModule, ARRAYSIZE(szModule)) == 0)
-    //{
-    //    hr = HRESULT_FROM_WIN32(GetLastError());
-    //    return hr;
-    //}
-    //std::wstring szModule = L"C:\\Users\\stefa\\Projects\\PowerToys\\x64\\Debug\\modules\\FileExplorerPreview\\SvgPreviewHandlerCpp.dll";
-    //HRESULT hr;
-    //hr = RegisterInprocServer(szModule.c_str(), CLSID_RecipePreviewHandler, L"CppShellExtPreviewHandler.RecipePreviewHandler Class", L"Apartment", APPID_RecipePreviewHandler);
-    //if (SUCCEEDED(hr))
-    //{
-    //    // Register the preview handler. The preview handler is associated
-    //    // with the .recipe file class.
-    //    hr = RegisterShellExtPreviewHandler(L".svg", CLSID_RecipePreviewHandler, L"RecipePreviewHandler");
-    //}
-
-    ////////////////////////////////////////////////////////////////////////////////////////////
 
     try
     {
